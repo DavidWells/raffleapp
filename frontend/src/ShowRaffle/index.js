@@ -23,7 +23,7 @@ class ShowRaffle extends Component {
     const config = {
       headers: getHeaders(),
     }
-    axios.get(`https://raffle.serverlessteam.com/${shortcode}`, config)
+    axios.get(`https://u4zfjnriue.execute-api.us-west-1.amazonaws.com/prod/${shortcode}`, config)
       .then(res => {
         console.log(res.data)
         const raffle = res.data;
@@ -48,7 +48,7 @@ class ShowRaffle extends Component {
   }
   enterRaffle = () => {
     const id = this.props.match.params.shortcode
-    const url = `https://raffle.serverlessteam.com/${id}/register`
+    const url = `https://u4zfjnriue.execute-api.us-west-1.amazonaws.com/prod/${id}/register`
     // reset one click signup
     localStorage.setItem('raffle_sign_up', 'false')
     axios({

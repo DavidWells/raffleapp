@@ -1,23 +1,35 @@
-service: raffle-py
+service: netlify-conference-raffles
 
 plugins:
   - serverless-python-requirements
-  - serverless-domain-manager
-
+  # - serverless-domain-manager
 
 custom:
+  # default prod stage
+  stage: ${opt:stage, 'prod'}
+  # default region
+  region: ${opt:region, 'us-west-1'}
+  # default aws profile name
+  profile: ${opt:profile, 'netlify'}
+  # netlify service url
+  domainName: netlify-services.com
+  # Table names
+  rafflesTable: netlify-conference-raffles-${self:custom.stage}-raffles
+  entriesTable: netlify-conference-raffles-${self:custom.stage}-entries
+
   pythonRequirements:
     dockerizePip: true
-  customDomain:
-    domainName: 'raffle.serverlessteam.com'
-    basePath: ''
-    stage: ${self:provider.stage}
-    createRoute53Record: true
+  # customDomain:
+  #   domainName: 'raffle.serverlessteam.com'
+  #   basePath: ''
+  #   stage: ${self:provider.stage}
+  #   createRoute53Record: true
 
 provider:
   name: aws
   runtime: python3.6
-  region: us-west-2
+  stage: ${self:custom.stage}
+  region: ${self:custom.region}
   iamRoleStatements:
     - Effect: Allow
       Action:
@@ -30,7 +42,7 @@ provider:
       Resource:
         - { "Fn::GetAtt": ["RafflesDynamoDBTable", "Arn" ] }
         - { "Fn::GetAtt": ["EntriesDynamoDBTable", "Arn" ] }
-    
+
   environment:
     RAFFLE_TABLE: { "Ref": "RafflesDynamoDBTable" }
     ENTRY_TABLE: { "Ref": "EntriesDynamoDBTable" }
@@ -70,7 +82,7 @@ functions:
           request:
             parameters:
               paths:
-                shortcode: true          
+                shortcode: true
           cors: true
 
 # public APIs
@@ -83,7 +95,7 @@ functions:
           request:
             parameters:
               paths:
-                shortcode: true          
+                shortcode: true
           cors: true
 
 resources:
@@ -91,6 +103,7 @@ resources:
     RafflesDynamoDBTable:
       Type: 'AWS::DynamoDB::Table'
       Properties:
+        TableName: ${self:custom.rafflesTable}
         AttributeDefinitions:
           -
             AttributeName: shortcode
@@ -105,6 +118,7 @@ resources:
     EntriesDynamoDBTable:
       Type: 'AWS::DynamoDB::Table'
       Properties:
+        TableName: ${self:custom.entriesTable}
         AttributeDefinitions:
           -
             AttributeName: shortcode

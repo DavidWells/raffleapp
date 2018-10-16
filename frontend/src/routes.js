@@ -23,8 +23,8 @@ export const makeMainRoutes = () => {
   const create = (props) => !auth.isAuthenticated() ? homeRedirect : <Create {...props} />
   const login = (props) => auth.isAuthenticated() ? homeRedirect : <Login auth={auth} {...props} />
   const runRaffle = (props) => !auth.isAuthenticated() ? homeRedirect : <PickWinner auth={auth} {...props} />
-  // https://raffle.serverlessteam.com/%3Cshortcode%3E/entries
-  // https://raffle.serverlessteam.com/<shortcode>/winner
+  // https://confs.netlify.com/%3Cshortcode%3E/entries
+  // https://confs.netlify.com/<shortcode>/winner
   return (
     <Router history={history} component={App}>
       <div className="app-contents">

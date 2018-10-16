@@ -24,7 +24,7 @@ class Home extends Component {
       }
     }
     console.log(config)
-    axios.get('https://raffle.serverlessteam.com', config)
+    axios.get('https://u4zfjnriue.execute-api.us-west-1.amazonaws.com/prod', config)
       .then(res => {
         if (res.status === 403) {
           this.setState({

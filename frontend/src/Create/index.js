@@ -35,7 +35,7 @@ export default class Create extends Component {
     admins = admins.split(',').map((item) => item.trim())
     // save data
     axios({
-      url: 'https://raffle.serverlessteam.com/create',
+      url: 'https://u4zfjnriue.execute-api.us-west-1.amazonaws.com/prod/create',
       method: 'post',
       data: {
         name: name,

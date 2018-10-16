@@ -61,7 +61,7 @@ export default class PickWinner extends Component {
 
     axios({
       method: 'post', // TODO needs to be post
-      url: `https://raffle.serverlessteam.com/${match.params.shortcode}`,
+      url: `https://u4zfjnriue.execute-api.us-west-1.amazonaws.com/prod/${match.params.shortcode}`,
       headers: getHeaders()
     }).then((response) => {
       console.log('response', response)
@@ -111,7 +111,7 @@ export default class PickWinner extends Component {
     admins = admins.split(',').map((item) => item.trim())
     // save data
     axios({
-      url: 'https://raffle.serverlessteam.com/create',
+      url: 'https://u4zfjnriue.execute-api.us-west-1.amazonaws.com/prod/create',
       method: 'post',
       data: {
         name: name,
