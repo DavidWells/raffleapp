@@ -33,7 +33,7 @@
   padding: 1rem;
 }
 .create input:focus, .create textarea:focus  {
-  border-color: #FD5750;
+  border-color: #1e9fc1;
 }
 .create button {
   margin-top: 10px;
@@ -59,8 +59,8 @@
   white-space: nowrap;
 }
 .create button:hover {
-  box-shadow: inset 0 0 0 2px #FD5750;
-  color: #FD5750 !important;
+  box-shadow: inset 0 0 0 2px #1e9fc1;
+  color: #1e9fc1 !important;
 }
 .created-success {
   position: absolute;
