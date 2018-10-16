@@ -25,27 +25,22 @@ export const makeMainRoutes = () => {
   const runRaffle = (props) => !auth.isAuthenticated() ? homeRedirect : <PickWinner auth={auth} {...props} />
   // https://raffle.serverlessteam.com/%3Cshortcode%3E/entries
   // https://raffle.serverlessteam.com/<shortcode>/winner
-  /*
-  {
-      "winner": "david@serverless.com",
-  }
-   */
   return (
-      <Router history={history} component={App}>
-        <div className="app-contents">
-          <Route path="/" render={(props) => <App auth={auth} {...props} />} />
-          <Switch>
-            <Route path="/" exact render={(props) => <Home auth={auth} {...props} />} />
-            <Route path="/login" exact render={login} />
-            <Route path="/create" exact render={create} />
-            <Route path="/callback" render={(props) => {
-              handleAuthentication(props);
-              return <Callback {...props} />
-            }}/>
-            <Route path="/:shortcode" exact render={(props) => <ShowRaffle auth={auth} {...props} />} />
-            <Route path="/:shortcode/raffle" render={runRaffle} />
-          </Switch>
-        </div>
-      </Router>
-  );
+    <Router history={history} component={App}>
+      <div className="app-contents">
+        <Route path="/" render={(props) => <App auth={auth} {...props} />} />
+        <Switch>
+          <Route path="/" exact render={(props) => <Home auth={auth} {...props} />} />
+          <Route path="/login" exact render={login} />
+          <Route path="/create" exact render={create} />
+          <Route path="/callback" render={(props) => {
+            handleAuthentication(props)
+            return <Callback {...props} />
+          }}/>
+          <Route path="/:shortcode" exact render={(props) => <ShowRaffle auth={auth} {...props} />} />
+          <Route path="/:shortcode/raffle" render={runRaffle} />
+        </Switch>
+      </div>
+    </Router>
+  )
 }

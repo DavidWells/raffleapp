@@ -5,6 +5,7 @@
   background-repeat: repeat;
   background-size: cover;
   background-image: linear-gradient(-188deg, #f26c4e 0%, #f24f48 100%);
+  background-image: linear-gradient(-188deg, #4eb6f2 0%, #6c48f2 100%)
 }
 .backdrop {
   position: absolute;

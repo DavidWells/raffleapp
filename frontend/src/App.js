@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom'
+import Logo from './netlify-logo.svg'
 import './App.css';
 
 class App extends Component {
@@ -17,24 +18,14 @@ class App extends Component {
 
   render() {
     const { isAuthenticated } = this.props.auth;
-    const navLink = (
-      <Link to='/'>
-        <img alt="Serverless logo" src="https://s3-us-west-2.amazonaws.com/assets.site.serverless.com/logos/serverless-logo.svg"/>
-      </Link>
-    )
-
-
     return (
       <div className="App">
         <div className='nav'>
           <div className='nav-bg'></div>
-          <div className="left-nav">
-            <div className="logo">
-              {navLink}
-            </div>
-          </div>
           <div className="logoText">
-            <img alt="Serverless" src="https://s3-us-west-2.amazonaws.com/assets.site.serverless.com/logos/serverless_text_white.svg"/>
+            <Link to='/'>
+              <img alt="Serverless" src={Logo} />
+            </Link>
           </div>
           <div className="right-nav">
           { isAuthenticated()

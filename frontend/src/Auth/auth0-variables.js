@@ -6,7 +6,7 @@ if (process.env.NODE_ENV === 'production') {
 }
 
 export const AUTH_CONFIG = {
-  domain: 'serverlessinc.auth0.com',
-  clientId: '37p4vtkwmDGQwwG1FYhwOGiu3OjZoHo5',
+  domain: 'netlify-dev.auth0.com',
+  clientId: 'Y4L4NC6eGiaYq651pXHsEvtvyID3m4t2',
   callbackUrl: callbackUrl
 }

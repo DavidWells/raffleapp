@@ -130,17 +130,8 @@ class Home extends Component {
         <div className="landing-page">
           <div className="backdrop"></div>
           <div className="contents">
-            <h1>Serverless Raffles</h1>
-            <p>The 100% serverless raffle app
-              <span className="tech">
-                Built with AWS Lambda, DynamoDB, API Gateway & auth0
-              </span>
-              <span className="repo-link">
-                <a href="https://github.com/serverless/raffleapp" target="_blank">
-                  > Fork this on Github
-                </a>
-              </span>
-            </p>
+            <h1>Netlify Raffles</h1>
+            <br/><br/>
             <Button onClick={auth.login}>Admin Login</Button>
           </div>
         </div>

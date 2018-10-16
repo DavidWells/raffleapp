@@ -23,6 +23,6 @@ export default class HeroCard extends Component {
           { after }
         </div>
       </div>
-    );
+    )
   }
 }
