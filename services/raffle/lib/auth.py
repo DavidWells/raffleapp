@@ -1,8 +1,8 @@
 import requests
 
 
-PROFILE_ENDPOINT = 'https://serverlessinc.auth0.com/userinfo'
-SUPER_ADMINS = ['alexdebrie1@gmail.com']
+PROFILE_ENDPOINT = 'https://netlify-dev.auth0.com/userinfo'
+SUPER_ADMINS = ['david.wells@netlify.com']
 
 
 class MissingAuthentication(Exception):
@@ -14,7 +14,7 @@ class InvalidAuthentication(Exception):
         self.message = message
 
 
-# Stub function for now. 
+# Stub function for now.
 # Eventually, this will decode a JWT and return the email address.
 def get_email(headers, required=True):
     auth = headers.get('Authorization')
@@ -55,13 +55,13 @@ def get_email_from_auth(auth):
 
 def can_create_raffle(email):
     # Only those with @serverless.com addresses can create a raffle.
-    return email.endswith('@serverless.com') or email in SUPER_ADMINS
+    return email.endswith('@netlify.com') or email in SUPER_ADMINS
 
 
 def can_view_raffles(email):
     # Only those with @serverless.com addresses can view all raffles.
-    return email.endswith('@serverless.com') or email in SUPER_ADMINS
+    return email.endswith('@netlify.com') or email in SUPER_ADMINS
 
 
 def is_raffle_admin(email, admins):
-    return email.endswith('@serverless.com') or email in admins or email in SUPER_ADMINS
+    return email.endswith('@netlify.com') or email in admins or email in SUPER_ADMINS
