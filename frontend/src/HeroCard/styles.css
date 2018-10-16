@@ -13,19 +13,17 @@
   flex-grow: 1;
 }
 .heroCardOuter {
-  width: 780px;
   position: relative;
   color: #FFFFFF;
 }
 .heroCard {
   position: relative;
-  width: 780px;
   padding: 5rem 8rem;
   border-radius: 10.8333px;
   background-position: 0% 0%;
   background-repeat: repeat;
   background-size: cover;
-  background-image: linear-gradient(-188deg, #f26c4e 0%, #f24f48 100%);
+  background-image: linear-gradient(-188deg, #4eb6f2 0%, #6c48f2 100%);
   box-shadow: 0rem 1.125rem 4.125rem 0rem rgba(0,0,0,0.451);
   border-radius: 0.625rem 0.625rem 0.625rem 0.625rem;
   transition: opacity 0.75s ease 0.125s,transform 0.75s ease 0.125s;
@@ -36,9 +34,10 @@
 .heroCardContents h1 {
   letter-spacing: -0.05rem;
   width: 100%;
-  font-size: 2.25em;
+  font-size: 3.25em;
   line-height: 1.25;
   font-weight: 400;
+  margin-bottom: 20px;
 }
 
 .heroCardContentsInner {
@@ -46,8 +45,8 @@
 }
 
 .heroCardDescription {
-  font-size: 19.5px;
-  font-weight: 100;
+  font-size: 24.5px;
+  font-weight: 500;
   min-height: 20px;
   letter-spacing: 1px;
   line-height: 1.5;
